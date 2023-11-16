@@ -1,8 +1,12 @@
-﻿@{
+﻿@using ExploringAppSettings.Options;
+@using Microsoft.Extensions.Options;
+
+@inject IOptions<PrintSetting> _printSetting;
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div>
+    <p>Is Print Enabled: @_printSetting.Value.EnablePrintOption</p>
+    <p>Default Print Size: @_printSetting.Value.DefaultPrintSize</p>
 </div>
